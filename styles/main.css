@@ -1,3 +1,148 @@
 :root {
+  --gray: #fafafa;
+  --text-color: #4d4f62;
   --white: white;
+
+  --main-font: 'Poppins', sans-serif;
+  --desktop-cutoff: 69.375rem;
+  --radius: 8px;
+}
+
+body {
+  background: var(--gray);
+  font-family: var(--main-font);
+  margin: 5rem auto 4rem;
+  max-width: var(--desktop-cutoff);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 200;
+  letter-spacing: 0.25px;
+}
+
+h1 span {
+  font-weight: 600;
+}
+
+header {
+  color: var(--text-color);
+  margin-bottom: 4.5rem;
+  text-align: center;
+}
+
+header p {
+  font-size: 0.9375rem;
+  letter-spacing: 0.1px;
+  line-height: 1.6;
+  margin: 1rem auto 0;
+  opacity: 0.5;
+  width: 50%;
+}
+
+.cards-container {
+  display: grid;
+  gap: 1.875rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-info {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 15px 30px -11px hsla(213, 47%, 67%, 0.5);
+  color: var(--text-color);
+  max-width: 21.875rem;
+  padding: 2rem;
+  position: relative;
+  top: var(--card-top-placement);
+}
+
+.card-info::before {
+  background: var(--dynamic-card-color);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  content: '';
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-info h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.card-info p {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  line-height: 1.75;
+  opacity: 0.5;
+}
+
+.card-info img {
+  display: flex;
+  height: 4rem;
+  justify-content: end;
+  margin: 2.7rem 0 0 auto;
+  width: 4rem;
+}
+
+.red-card {
+  --dynamic-card-color: #ea5454;
+}
+
+.yellow-card {
+  --dynamic-card-color: #fcae4a;
+  grid-column-start: 2;
+}
+
+.blue-card {
+  --card-top-placement: 57%;
+  --dynamic-card-color: #549ef2;
+}
+
+.green-card {
+  --card-top-placement: 57%;
+  --dynamic-card-color: #44d3d2;
+}
+
+@media screen and (max-width: 69.375rem) {
+  body {
+    max-width: 20rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    width: 100%;
+  }
+
+  .cards-container {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .card-info {
+    max-width: 100%;
+  }
+
+  .yellow-card {
+    grid-column-start: unset;
+  }
+
+  .blue-card {
+    --card-top-placement: 0;
+  }
+
+  .green-card {
+    --card-top-placement: 0;
+  }
 }
